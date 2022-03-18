@@ -1,6 +1,13 @@
 # Prerequisites
 *.d
 
+# Class files
+splay.c
+splaytest.c
+
+# Header files
+splay.h
+
 # Object files
 *.o
 *.ko
@@ -50,3 +57,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Ye Xia files
+MakeFile
+mk
+readme
