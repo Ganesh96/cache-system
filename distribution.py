@@ -17,9 +17,17 @@ class Exponential(Distribution):
     
     def spit(self):
         return 0    #self.Model
+
 class Pareto(Distribution):
     def __init__(self,param,size):
         self.Model = rm.pareto(param,size)
+    
+    def spit(self):
+        return 0    #self.Model
+
+class Poisson(Distribution):
+    def __init__(self,param,size):
+        self.Model = rm.poisson(param,size)
     
     def spit(self):
         return 0    #self.Model
@@ -33,4 +41,6 @@ def Get_Distribution(distributionType,map):
         ExponentialDistribution =1
         return Exponential(SIZE)
     if distributionType == "paretoDistribution":
+        return Pareto(ALPHA,SIZE)
+    if distributionType == "poissonDistribution":
         return Pareto(ALPHA,SIZE)
