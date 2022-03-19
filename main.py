@@ -8,10 +8,12 @@ from distribution import Get_Distribution
 
 GlobalTime = time()
 FilesDB = list()
+FilesProbability = list()
 
 def Generate(BigN):
     for i in range(1,BigN+1):
         FilesDB.append(File(i))
+    FilesProbability = Get_Distribution("poissonDistribution",{"size":1000,"alpha":10}).spit()
 
 if __name__ == "__main__":
     # Create files for the server to access
