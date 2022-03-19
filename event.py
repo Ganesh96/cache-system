@@ -1,5 +1,6 @@
-from abc import ABC as abstract, abstractmenthod
-from distribution import exp
+from abc import ABC as abstract, abstractmethod
+from distribution import Get_Distribution
+from file import File
 import constants
 
 class EventChange():
@@ -7,39 +8,69 @@ class EventChange():
 
 class Event(abstract):
     def __init__(self, fileID,eventtime):
-        self.FileID = fileID
+        self.File = File()
         self.EventTime = eventtime
-        self.Status = constants.New
+        #self.Status = constants.New
 
-    @abstractmenthod
+    @abstractmethod
     def process(self):
         pass
 
-class NewRequestEvent(Event):
+class RequestEvent(Event):
     def __init__(self, fileID,eventtime):
         super().__init__(fileID,eventtime)
         self.existsCache = False
     
     def process(self):
-        self.EventTime+= 
+        if self.existsCache:
+            self.EventTime+= self.File.GetResponseTime()
 
-#######################
-class RequestEvent(Event):
-    def __init__(self, fileID,executeTime):
-        super().__init__(fileID,executeTime)
-    
-    def details(self):
-        print(self.FileID,self.ExecuteTime,self.Status)
+class FileReceivedEvent(Event):
+    def __init__(self, fileID,eventtime):
+        super().__init__(fileID,eventtime)
+        self.existsCache = False
     
     def process(self):
-        self.ExecuteTime += 
+        if self.existsCache:
+            self.EventTime+= self.File.GetResponseTime()
 
-class ResponseEvent(Event):
-    def __init__(self, fileID, executeTime):
-        super().__init__(fileID, executeTime)
+class ArriveAtQueueEvent(Event):
+    def __init__(self, fileID,eventtime):
+        super().__init__(fileID,eventtime)
+        self.existsCache = False
     
     def process(self):
+        if self.existsCache:
+            self.EventTime+= self.File.GetResponseTime()
+
+class DepartQueueEvent(Event):
+    def __init__(self, fileID,eventtime):
+        super().__init__(fileID,eventtime)
+        self.existsCache = False
+    
+    def process(self):
+        if self.existsCache:
+            self.EventTime+= self.File.GetResponseTime()
 
 
-r= RequestEvent(1,1)
-r.details
+# My Legacy Code
+
+# class RequestEvent(Event):
+#     def __init__(self, fileID,executeTime):
+#         super().__init__(fileID,executeTime)
+    
+#     def details(self):
+#         print(self.FileID,self.ExecuteTime,self.Status)
+    
+#     def process(self):
+#         self.ExecuteTime += 
+
+# class ResponseEvent(Event):
+#     def __init__(self, fileID, executeTime):
+#         super().__init__(fileID, executeTime)
+    
+#     def process(self):
+
+
+# r= RequestEvent(1,1)
+# r.details
