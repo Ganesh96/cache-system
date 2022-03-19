@@ -1,6 +1,5 @@
 from abc import ABC as abstract, abstractmethod
-from ctypes.wintypes import SIZE
-from numpy import random as rm, size
+from numpy import random as rm
 
 # ExponentialDistribution = None
 # ParetoDistribution = None
