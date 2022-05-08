@@ -1,6 +1,6 @@
 # Cache-System
 ## Objective
-   A cache system is simulated by using probabily dsitribution on file, request events and observing the results of each cache policy for these distributions. Cache policies used are least probabilistically and storage used aka LPSU, least frequently used aka LFU and least recently used aka LRU.
+   A cache system is simulated by using probability distribution on file, request events and observing the results of each cache policy for these distributions. Cache policies used are least probabilistically and storage used aka LPSU, least frequently used aka LFU and least recently used aka LRU.
 
 ## Requirements
    Use Jupyter notebook if possible as it has built-in installations of these libraries, in that case you would need to open the project folder in the notebook and then copy paste the main.py code onto the notebook and run the cell.
